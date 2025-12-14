@@ -37,7 +37,8 @@
       display:flex; align-items:center; gap:16px;
     }
     .main-text{flex:1; line-height:1.5;}
-    .song audio{display:block; width:100%; height:40px;}
+    .song{display:flex; align-items:center; gap:8px; color:var(--accent2); font-weight:600;}
+    .song audio{display:block; width:320px; height:40px;} /* Larghezza fissa su desktop per visibilità */
 
     .controls{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
     .btn{
@@ -83,7 +84,7 @@
         width:100%; /* Occupa tutta la larghezza */
         margin-top:12px;
       }
-      .song audio{height:48px;} /* Player più alto per tocco facile */
+      .song audio{height:48px; width:100%;} /* Player più alto per tocco facile */
       .controls{flex-direction:column;}
     }
   </style>
@@ -103,7 +104,7 @@
           Continua a dare il massimo come hai sempre fatto!
         </div>
         <div class="song">
-          <audio id="song" controls preload="metadata">
+            <audio id="song" controls preload="metadata">
             <source src="Ultimo - Buongiorno Vita (Testo e Audio).mp3" type="audio/mpeg">
             Il tuo browser non supporta l'audio.
           </audio>
