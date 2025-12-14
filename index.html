@@ -139,14 +139,14 @@
         audioEl.src = decodeURIComponent(params.get('song'));
       }
       audioEl.addEventListener('loadedmetadata', () => {
-        audioEl.currentTime = 120; // inizia a 2 minuti
+        audioEl.currentTime = 121; // inizia a 2:01
       });
       audioEl.addEventListener('error', () => {
         console.warn('Errore nel caricamento dell\'audio');
       });
 
       const baseText = (who) => (who ? `${who}, ` : '') +
-        "Con le cuffie che ti abbiamo regalato puoi ascoltare meglio ciò che più ti piace. " +
+        "Con il regalo che ti abbiamo fatto puoi ascoltare meglio ciò che più ti piace! " +
         "Buona fortuna per il futuro, il meglio deve ancora venire! 🚀";
 
       const stanza = `Quando avevo 15 anni, andavo al parco con le cuffie
