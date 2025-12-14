@@ -53,7 +53,12 @@
          transition: all 0.3s;
     }
     .message{display:flex;align-items:flex-start;gap:12px; animation:fadeIn 0.5s}
-    .badge{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent3),var(--accent1));display:flex;align-items:center;justify-content:center;color:#04121a;font-weight:800;font-size:16px;flex-shrink:0}
+    .badge{
+      width:44px;height:44px;border-radius:10px;
+      background:linear-gradient(135deg, #000011, #220033); /* Colori spaziali scuri attorno alla stella cometa */
+      display:flex;align-items:center;justify-content:center;color:#eaf6ff;font-weight:800;font-size:16px;flex-shrink:0;
+      box-shadow: 0 0 10px rgba(34, 0, 51, 0.5); /* Ombra spaziale */
+    }
     .text{line-height:1.5;color:var(--text-main);white-space:pre-wrap;}
 
     .stanza{
