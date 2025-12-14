@@ -84,6 +84,11 @@
     .spark{display:inline-block;font-size:18px;margin-left:6px;transform-origin:center;animation:pop .9s ease forwards}
     @keyframes pop{0%{transform:translateY(6px) scale(.6) rotate(0) }50%{transform:translateY(-6px) scale(1.12) rotate(12deg)}100%{transform:translateY(0) scale(1) rotate(-6deg)}}
 
+    @media (max-width:520px){
+      .logo{width:54px;height:54px;font-size:20px}
+      .badge{width:40px;height:40px;font-size:14px}
+      .song audio{width:200px}
+    
     /* Mobile: mostra prima il testo nella card e poi, sotto, la barra audio.
          disponi la parte con l'emoji 🎵 e la barra audio su un'unica riga orizzontale. */
       .note{
