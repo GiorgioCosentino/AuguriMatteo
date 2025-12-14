@@ -6,104 +6,85 @@
   <title>Auguri Matteo! 🎓</title>
   <style>
     :root{
-      --bg1:#06121a; --bg2:#0b2736; --card:#071827;
+      --bg1:#06121a; --bg2:#0b2736; --card:#0c1a29;
       --accent1:#ff6b9f; --accent2:#5cc1ff; --accent3:#00d1a8;
-      --muted:#9fb6c3; --muted-2:#7f99a6; --glass: rgba(255,255,255,0.04);
-      --border: rgba(255,255,255,0.06);
+      --muted:#a0b8c8; --text-main:#eaf6ff; --border:rgba(92, 193, 255, 0.1);
     }
     html,body{height:100%;margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial}
     body{
-      background:
-        radial-gradient(60% 60% at 10% 10%, rgba(255,107,159,0.06) 0%, transparent 30%),
-        radial-gradient(60% 60% at 90% 90%, rgba(92,193,255,0.04) 0%, transparent 30%),
-        linear-gradient(180deg,var(--bg1) 0%, var(--bg2) 100%);
-      display:flex;align-items:center;justify-content:center;padding:28px;color:var(--muted);
+      background: linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 100%);
+      display:flex;align-items:center;justify-content:center;padding:20px;color:var(--muted);
     }
 
-    .wrap{width:100%;max-width:760px}
+    .wrap{width:100%;max-width:680px}
     .card{
-      position:relative;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:14px;padding:22px;border:1px solid var(--border);
-      box-shadow:0 10px 30px rgba(0,0,0,0.6);overflow:hidden;color:var(--muted);
-      backdrop-filter: blur(6px);
+      background:var(--card); border-radius:16px;padding:24px;border:1px solid var(--border);
+      box-shadow:0 12px 40px rgba(0,0,0,0.5); overflow:hidden;
     }
 
-    header{display:flex;align-items:center;gap:14px}
+    header{display:flex;align-items:center;gap:16px}
     .logo{
-      width:64px;height:64px;border-radius:12px;
+      width:60px;height:60px;border-radius:12px;
       background:linear-gradient(135deg,var(--accent1),var(--accent2));
-      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:22px;
-      box-shadow:0 8px 28px rgba(0,0,0,0.6)
+      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:24px;
+      flex-shrink:0;
     }
-    h1{font-size:1.25rem;margin:0;color:#eaf6ff}
-    
-    .content-wrapper {
-      display: flex;
-      flex-wrap: wrap; /* Permette al layout di adattarsi */
-      align-items: center;
-      gap: 14px;
-      margin-top: 14px;
-    }
-    .note{
-      flex: 1 1 auto; /* Permette al box di crescere e restringersi */
-      padding:14px;border-radius:12px;
-      background:linear-gradient(90deg, rgba(0,0,0,0.18), rgba(255,255,255,0.01));
-      border:1px solid rgba(255,255,255,0.02)
-    }
-    .song{
-      flex-shrink: 0; /* Evita che il player si restringa troppo */
-      display:inline-flex;gap:8px;align-items:center;color:var(--accent2);font-weight:700;
-      background:var(--glass);padding:8px 10px;border-radius:10px;border:1px solid rgba(92,193,255,0.08);
-    }
-    .song audio{width:300px;max-width:100%;height:32px;border-radius:6px;background:transparent}
+    h1{font-size:1.3rem;margin:0;color:var(--text-main)}
 
-    .controls{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+    .content-area{
+      margin-top:20px;padding:16px;border-radius:12px;
+      background:rgba(0,0,0,0.2); border:1px solid var(--border);
+      display:flex; align-items:center; gap:16px;
+    }
+    .main-text{flex:1; line-height:1.5;}
+    .song audio{display:block; width:100%; height:40px;}
+
+    .controls{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
     .btn{
-      appearance:none;border:0;padding:10px 14px;border-radius:10px;cursor:pointer;font-weight:700;
-      color:white;background:linear-gradient(90deg,var(--accent2),#7b61ff);box-shadow:0 8px 20px rgba(123,97,255,0.12)
+      flex:1; appearance:none;border:0;padding:12px 16px;border-radius:10px;cursor:pointer;font-weight:600;
+      color:white;background:linear-gradient(90deg,var(--accent2),#7b61ff);
+      text-align:center;
     }
-    .btn.ghost{background:transparent;color:var(--accent2);border:1px dashed rgba(92,193,255,0.08)}
+    .btn.ghost{background:transparent;color:var(--accent2);border:1px solid var(--border);}
 
-    .out{margin-top:16px;min-height:96px;padding:14px;border-radius:12px;
-         background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.06));
-         border:1px solid rgba(255,255,255,0.02); color:#e6fbff}
-    .message{font-size:1.02rem;color:#e6fbff;display:flex;align-items:flex-start;gap:12px}
+    .out{margin-top:16px;min-height:96px;padding:16px;border-radius:12px;
+         background:rgba(0,0,0,0.2); border:1px solid var(--border);
+         transition: all 0.3s;
+    }
+    .message{display:flex;align-items:flex-start;gap:12px; animation:fadeIn 0.5s}
     .badge{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent3),var(--accent1));display:flex;align-items:center;justify-content:center;color:#04121a;font-weight:800;font-size:16px;flex-shrink:0}
-    .text{line-height:1.35;color:#e6fbff;white-space:pre-wrap;animation:fadeIn 0.5s ease-in}
+    .text{line-height:1.5;color:var(--text-main);white-space:pre-wrap;}
 
     .stanza{
       font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
-      color:#fff;line-height:1.6;white-space:pre-wrap;margin:0;padding:0; font-size:1rem;
-      background:linear-gradient(135deg, rgba(255,107,159,0.1), rgba(92,193,255,0.08));
-      border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:12px;
-      position:relative;overflow:hidden;
+      color:var(--text-main);line-height:1.7;white-space:pre-wrap;margin:0; font-size:1rem;
+      animation:slideIn 0.6s ease-out;
     }
-    .stanza:before{content:"🎤";position:absolute;top:6px;left:8px;opacity:0.6;font-size:1.2rem}
-    .stanza .line{display:block;margin-bottom:6px;padding-left:24px;position:relative}
-    .stanza .line:before{content:"♪";position:absolute;left:4px;opacity:0.7;font-size:0.9rem;color:var(--accent1)}
-    .stanza{animation:slideIn 0.6s ease-out}
+    .stanza .line{display:block; position:relative; padding-left:24px; }
+    .stanza .line:before{content:"♪";position:absolute;left:0;color:var(--accent1);opacity:0.8;}
 
-    @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-    @keyframes slideIn{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes slideIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
 
-    .burst{position:absolute;right:18px;top:12px;pointer-events:none;opacity:0;transform:translateY(-6px);transition:opacity .4s,transform .5s}
-    .burst.show{opacity:1;transform:translateY(0)}
-    .spark{display:inline-block;font-size:18px;margin-left:6px;transform-origin:center;animation:pop .9s ease forwards}
-    @keyframes pop{0%{transform:translateY(6px) scale(.6) rotate(0) }50%{transform:translateY(-6px) scale(1.12) rotate(12deg)}100%{transform:translateY(0) scale(1) rotate(-6deg)}}
+    .burst{display:none} /* Rimosso per un look più pulito, ma puoi riattivarlo se vuoi */
 
-    /* Stili per Mobile */
-    @media (max-width: 720px) {
-      .content-wrapper {
-        flex-direction: column; /* Impila gli elementi verticalmente */
+    /* --- Mobile Layout --- */
+    @media (max-width:600px){
+      .card{padding:16px;}
+      header{gap:12px;}
+      .logo{width:52px;height:52px;}
+      h1{font-size:1.2rem;}
+      .content-area{
+        flex-direction:column; /* Stack verticale */
+        align-items:flex-start;
+        padding:12px;
       }
-      .song {
-        width: 100%; /* Occupa tutta la larghezza */
-        box-sizing: border-box;
+      .song{
+        width:100%; /* Occupa tutta la larghezza */
+        margin-top:12px;
       }
-      .song audio {
-        width: 100%;
-        height: 48px; /* Più alto per facilitare il tocco */
-      }
+      .song audio{height:48px;} /* Player più alto per tocco facile */
+      .controls{flex-direction:column;}
     }
   </style>
 </head>
@@ -116,31 +97,25 @@
           <h1>Auguri per la tua Laurea, Matteo!</h1>
         </div>
       </header>
-      
-      <div class="content-wrapper">
-        <div class="note">
+
+      <div class="content-area">
+        <div class="main-text">
           Continua a dare il massimo come hai sempre fatto!
         </div>
         <div class="song">
-          🎵 <audio id="song" controls preload="metadata">
+          <audio id="song" controls preload="metadata">
             <source src="Ultimo - Buongiorno Vita (Testo e Audio).mp3" type="audio/mpeg">
-            Il tuo browser non supporta l'audio. <a href="Ultimo - Buongiorno Vita (Testo e Audio).mp3">Scarica il file</a>
+            Il tuo browser non supporta l'audio.
           </audio>
         </div>
       </div>
 
       <div class="controls">
         <button id="show" class="btn" type="button">Mostra il messaggio</button>
-        <button id="showAuto" class="btn ghost" type="button">Premi qui per l'indizio!</button>
+        <button id="showAuto" class="btn ghost" type="button">Premi per l'indizio!</button>
       </div>
 
-      <div class="out" id="out" aria-live="polite">
-        <!-- messaggio o strofa stampati qui -->
-      </div>
-
-      <div class="burst" id="burst" aria-hidden="true">
-        <span class="spark">🎉</span><span class="spark">✨</span><span class="spark">💥</span>
-      </div>
+      <div class="out" id="out" aria-live="polite"></div>
     </div>
   </div>
 
@@ -151,18 +126,15 @@
 
       const audioEl = document.getElementById('song');
       if (params.get('song')) {
-        audioEl.src = decodeURIComponent(params.get('song'));
+        audioEl.querySelector('source').src = decodeURIComponent(params.get('song'));
+        audioEl.load(); // Ricarica l'audio con la nuova sorgente
       }
+
       audioEl.addEventListener('loadedmetadata', () => {
-        audioEl.currentTime = 121; // inizia a 2:01
-      });
-      audioEl.addEventListener('error', (e) => {
-        console.warn('Errore nel caricamento dell\'audio:', e);
+        audioEl.currentTime = 121; // Imposta l'inizio a 2:01
       });
 
-      const baseText = (who) => (who ? `${who}, ` : '') +
-        "Con il regalo che ti abbiamo fatto puoi ascoltare meglio ciò che più ti piace! " +
-        "Buona fortuna per il futuro, il meglio deve ancora venire! 🚀";
+      const baseText = (who) => `Con il regalo che ti abbiamo fatto puoi ascoltare meglio ciò che più ti piace! Buona fortuna per il futuro, il meglio deve ancora venire! 🚀`;
 
       const stanza = `Quando avevo 15 anni, andavo al parco con le cuffie
 Adesso ce ne ho 25 e vado al parco con le cuffie
@@ -170,7 +142,6 @@ Mi piace ricominciare da dove sono partito
 Per essere tale e quale al ricordo di me bambino`;
 
       const out = document.getElementById('out');
-      const burst = document.getElementById('burst');
 
       function showMessage(content, isStanza = false) {
         out.innerHTML = '';
@@ -187,7 +158,7 @@ Per essere tale e quale al ricordo di me bambino`;
           p.className = 'message';
           const badge = document.createElement('div');
           badge.className = 'badge';
-          badge.textContent = nameParam ? nameParam.trim().charAt(0).toUpperCase() : '★';
+          badge.textContent = nameParam ? nameParam.trim().charAt(0).toUpperCase() : 'M';
           const txt = document.createElement('div');
           txt.className = 'text';
           txt.textContent = content;
@@ -195,8 +166,6 @@ Per essere tale e quale al ricordo di me bambino`;
           p.appendChild(txt);
         }
         out.appendChild(p);
-        burst.classList.add('show');
-        setTimeout(() => burst.classList.remove('show'), 1200);
       }
 
       document.getElementById('show').addEventListener('click', () => showMessage(baseText(nameParam)));
