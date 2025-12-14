@@ -84,46 +84,24 @@
     .spark{display:inline-block;font-size:18px;margin-left:6px;transform-origin:center;animation:pop .9s ease forwards}
     @keyframes pop{0%{transform:translateY(6px) scale(.6) rotate(0) }50%{transform:translateY(-6px) scale(1.12) rotate(12deg)}100%{transform:translateY(0) scale(1) rotate(-6deg)}}
 
-    .song-outside{display:none}
-
-    @media (max-width:520px){
-      .logo{width:54px;height:54px;font-size:20px}
-      .badge{width:40px;height:40px;font-size:14px}
-      .song audio{width:200px}
-
-      /* Mobile: mostra prima il testo nella card e poi, sotto, la barra audio.
+    /* Mobile: mostra prima il testo nella card e poi, sotto, la barra audio.
          disponi la parte con l'emoji 🎵 e la barra audio su un'unica riga orizzontale. */
       .note{
         flex-direction:column;
         align-items:flex-start;
         gap:10px;
       }
-      /* dentro la card nascondiamo la .song (verrà spostata fuori con JS) */
+      /* Primo elemento (il testo) resta sopra, la .song va sotto e prende tutta la larghezza */
       .note > .song{
-        display:none;
-      }
-
-      /* mostra il contenitore esterno dell'audio sotto la card */
-      .song-outside{
-        display:block;
-        margin-top:12px;
-        padding:0 22px;
-      }
-
-      /* stile della .song quando è fuori dalla card (orizzontale) */
-      .song-outside .song{
         display:flex;
         align-items:center;
         gap:8px;
         width:100%;
         padding:8px 10px;
         box-sizing:border-box;
-        background:var(--glass);
-        border-radius:10px;
-        border:1px solid rgba(92,193,255,0.06);
       }
       /* L'audio prende tutta la larghezza disponibile (orizzontale) */
-      .song-outside .song audio{
+      .note > .song audio{
         width:100%;
         max-width:100%;
         height:36px;
